@@ -5,9 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-
-
-
+/* LU  */
 void LUdecomposition(double **A, double **L, double **U, int n);
 
 /*
