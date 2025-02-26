@@ -1,5 +1,5 @@
 #include "linear_sys_equs.h"
-#include "matrix_decomposition_dynamic.h"
+
 
 /*Solve Ly=b*/
 void lower_TriangularSolver(double** L, double* b, double* y, int n){

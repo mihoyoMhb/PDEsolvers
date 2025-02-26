@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
+#include "matrix_decomposition_dynamic.h"
+#include "matrix_funcs.h"
 /*Solve Ly = b*/
 void lower_TriangularSolver(double **L, double *b, double* y, int n);
 /*Solve L^T x = y */
