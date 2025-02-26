@@ -22,8 +22,14 @@ void printVector(double *v, int n) {
     printf("\n");
 }
 
-int main() {
-    int n = 50;  // 矩阵尺寸
+
+int main(int argc, char const *argv[]) {
+    if(argc != 2){
+        printf("Usage: %s <size of matrix>\n", argv[0]);
+        return 1;
+    }
+    int n = atoi(argv[1]);  // 矩阵尺寸
+    
     srand((unsigned)time(NULL));
 
     /* 动态分配矩阵 A 和下三角矩阵 L_true */
