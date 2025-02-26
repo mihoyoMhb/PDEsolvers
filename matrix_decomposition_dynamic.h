@@ -5,11 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-/* 动态分配 n 行 m 列的矩阵 */
-double** allocate_matrix(int n, int m);
 
-/* 释放矩阵内存 */
-void free_matrix(double **mat, int n);
 
 
 void LUdecomposition(double **A, double **L, double **U, int n);

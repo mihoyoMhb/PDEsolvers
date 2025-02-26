@@ -1,30 +1,5 @@
 #include "matrix_decomposition_dynamic.h"
 
-/* 动态分配矩阵 */
-double** allocate_matrix(int n, int m) {
-    double **mat = (double **)malloc(n * sizeof(double *));
-    if (mat == NULL) {
-        perror("Matrix memory allocation failed");
-        exit(EXIT_FAILURE);
-    }
-    for (int i = 0; i < n; i++) {
-        mat[i] = (double *)malloc(m * sizeof(double));
-        if (mat[i] == NULL) {
-            perror("Matrix memory allocation failed");
-            exit(EXIT_FAILURE);
-        }
-    }
-    return mat;
-}
-
-/* freee */
-void free_matrix(double **mat, int n) {
-    for (int i = 0; i < n; i++) {
-        free(mat[i]);
-    }
-    free(mat);
-}
-
 /* LU  */
 void LUdecomposition(double **A, double **L, double **U, int n) {
     for (int i = 0; i < n; i++) {

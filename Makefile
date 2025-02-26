@@ -4,7 +4,7 @@ CFLAGS = -Wall -O2 -std=c99
 LDFLAGS = -lm
 
 
-SRC = main.c matrix_decomposition_dynamic.c linear_sys_equs.c
+SRC = main.c matrix_decomposition_dynamic.c linear_sys_equs.c matrix_funcs.c
 OBJ = $(SRC:.c=.o)
 TARGET = my_program
 
