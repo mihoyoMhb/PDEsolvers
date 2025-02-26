@@ -28,16 +28,14 @@ int main(int argc, char const *argv[]) {
         printf("Usage: %s <size of matrix>\n", argv[0]);
         return 1;
     }
-    int n = atoi(argv[1]);  // 矩阵尺寸
+    int n = atoi(argv[1]);  // 
     
     srand((unsigned)time(NULL));
 
-    /* 动态分配矩阵 A 和下三角矩阵 L_true */
     double **A = allocate_matrix(n, n);
     double **L_true = allocate_matrix(n, n);
 
-    /* 构造随机下三角矩阵 L_true
-       为保证正定性，设定对角元在 [1,10] 内，其余下三角元在 [0,10] 内 */
+    /* 构造随机下三角矩阵 L_true */
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
             if (j <= i) {
