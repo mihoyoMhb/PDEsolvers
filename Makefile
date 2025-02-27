@@ -1,10 +1,10 @@
 
 CC = gcc
 CFLAGS = -Wall -O2 -std=c99
-LDFLAGS = -lm
+LDFLAGS = -lm -lopenblas
 
 
-SRC = main.c matrix_decomposition_dynamic.c linear_sys_equs.c matrix_funcs.c
+SRC = main.c matrix_decomposition_dynamic.c linear_sys_equs.c matrix_funcs.c ODE_solver.c 
 OBJ = $(SRC:.c=.o)
 TARGET = my_program
 
