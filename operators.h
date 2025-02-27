@@ -27,11 +27,25 @@ typedef struct{
 typedef struct{
     double* data;
     int size;
-}BoundayVector;
+}BoundaryVector;
 
 void sbp_cent_2nd(int m, double h, 
     DiagMatrix* H, DiagMatrix* HI, 
     CSRMatrix* D1, CSRMatrix* D2,
-    BoundayVector* e_l, BoundayVector* e_r,
-    BoundayVector* d1_l, BoundayVector* d1_r);
+    BoundaryVector* e_l, BoundaryVector* e_r,
+    BoundaryVector* d1_l, BoundaryVector* d1_r);
+
+
+// CSR matrix-vector product
+void csr_matvec(CSRMatrix* A, double* x, double* y);
+
+// Diagonal matrix-vector product
+void diag_matvec(DiagMatrix* A, double* x, double* y);
+
+// Free memory
+void free_diag(DiagMatrix *mat);
+
+void free_csr(CSRMatrix *mat); 
+
+void free_boundary(BoundaryVector *vec); 
 #endif // OPERATORS_H
