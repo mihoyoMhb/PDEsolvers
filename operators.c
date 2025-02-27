@@ -27,6 +27,29 @@ void diag_matvec(DiagMatrix* A, double *x, double *y){
     }
 }
 
+void diag_bv_product(DiagMatrix* A, BoundaryVector* b, BoundaryVector* y){
+    /*
+    Compute boundary vector product y = A*b
+    A: Diagonal matrix
+    b: Boundary vector
+    y: Output boundary vector
+    */
+    y->size = b->size;
+    y->data = (double*)malloc(y->size * sizeof(double));
+    for(int i=0;i<A->size;i++){
+        y->data[i] = A->diag[i] * b->data[i];
+    }
+}
+
+void bv_bv_product(BoundaryVector* B1, BoundaryVector* B2, CSRMatrix* A){
+    /*
+    Compute boundary vector product A = B1*B2
+    B1: Boundary vector
+    B2: Boundary vector
+    A: Output sparse matrix in CSR format
+    */
+   
+}
 // Free memory
 void free_diag(DiagMatrix *mat) {
     free(mat->diag);

@@ -42,6 +42,19 @@ void csr_matvec(CSRMatrix* A, double* x, double* y);
 // Diagonal matrix-vector product
 void diag_matvec(DiagMatrix* A, double* x, double* y);
 
+// Diagonal matrix-Boundary vector product
+// return a boundary vector y = A*b
+void diag_bv_product(DiagMatrix* A, BoundaryVector* b, BoundaryVector* y);
+
+// Boundary vector-Boundary vector product
+// For FDM, return a CSR matrix A = B1*B2
+void bv_bv_product(BoundaryVector* B1, BoundaryVector* B2, CSRMatrix* A);
+
+// CSR matrix add operation
+// return a CSR matrix C = A + B
+void csr_add(CSRMatrix* A, CSRMatrix* B, CSRMatrix* C);
+
+
 // Free memory
 void free_diag(DiagMatrix *mat);
 
