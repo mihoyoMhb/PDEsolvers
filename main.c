@@ -37,7 +37,6 @@ int main(int argc, char const *argv[]) {
 
     double **A = allocate_matrix(n, n);
     double **L_true = allocate_matrix(n, n);
-
     /* 构造随机下三角矩阵 L_true */
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
