@@ -43,12 +43,46 @@ void diag_bv_product(DiagMatrix* A, BoundaryVector* b, BoundaryVector* y){
 
 void bv_bv_product(BoundaryVector* B1, BoundaryVector* B2, CSRMatrix* A){
     /*
-    Compute boundary vector product A = B1*B2
+    Compute boundary vector product A = B1*B2.T
     B1: Boundary vector
     B2: Boundary vector
     A: Output sparse matrix in CSR format
     */
-   
+    int m = B1->size; 
+    int n = B2->size;
+    A->rows = m; A->cols = n;
+    A->row_ptr = (int*)malloc((m+1) * sizeof(int));
+
+    // Count the number of non-zero elements every row
+    int* row_nnz = calloc(m, sizeof(int));
+    for(int i=0;i<m;i++){
+        if(B1->data[i] != 0){
+            for(int j=0;j<n;j++){
+                if(B2->data[j] != 0){
+                    row_nnz[i]++;
+                }
+            }
+        }
+    }
+
+    // Construct CSR matrix A
+    A->nnz = 0;
+    A->row_ptr[0] = 0;
+    for(int i=0;i<m;i++){
+        // Set row pointer
+        A->row_ptr[i+1] = A->row_ptr[i] + row_nnz[i];
+        A->nnz += row_nnz[i];
+    }
+    A->values = (double*)malloc(A->nnz * sizeof(double));
+    A->col_indices = (int*)malloc(A->nnz * sizeof(int));
+
+    int idx = 0;
+    for(int i = 0;i<m;i++){
+        if(B1->data[i] != 0){
+        }
+    }
+
+
 }
 // Free memory
 void free_diag(DiagMatrix *mat) {
